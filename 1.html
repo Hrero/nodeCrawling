@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="dw_table">
+        <div class="el">
+            <div class="t1">1</div>
+            <div class="t2">2</div>
+        </div>
+        <div class="el">
+            <div class="t1">1</div>
+            <div class="t2">1</div>
+        </div>
+        <div class="el">
+            <div class="t1">3</div>
+            <div class="t2">4</div>
+        </div>
+        <div class="el">
+            <div class="t1">1</div>
+            <div class="t2">3</div>
+        </div>
+        <div class="el">
+            <div class="t1">3</div>
+            <div class="t2">4</div>
+        </div>
+    </div>
+    <script src="./jquery.min.js"></script>
+    <script>
+        class a {
+            constructor() {
+
+            }
+            geta() {
+                console.log(1)
+            }
+        }
+        const ac = new a();
+        ac.geta()
+        // const obj = {
+        //     a: {
+        //         b: { 
+        //             c: { 
+        //                 d: 123123, 
+        //                 e: '我是eee' 
+        //             } 
+        //         } 
+        //     } 
+    //     }
+    // const fn = (target, path) => {
+    //     // fields = ['a', 'b', 'c', 'd']
+    //     const fields = path.split('.')
+    //     // obj = {a: {b: {c: { d: 123123, e: '我是eee' } } } }
+    //     let obj = target
+    //     // l = 4
+    //     const l = fields.length
+    //     // 通过循环，逐层深入，这里i最大是2
+    //     for (let i = 0; i < l - 1; i++) {
+    //         const key = fields[i]
+    //         if (!obj[key]) {
+    //         return undefined
+    //         }
+    //         obj = obj[key]
+    //     }
+    //     // obj = { d: 123123, e: '我是eee' }
+    //     // fields[l - 1] = d
+    //     // 所以 obj[fields[l - 1]] = obj[d] = 123123
+    //     return obj[fields[l - 1]]
+    // }
+    // const a = fn(obj, 'a.b.c.e');
+    // console.log(a)
+        // console.log(1)
+        // function testFn(...arg) {
+        //     console.log(arg)
+        //     // throw new Error(`Required option 'from' not specified`)
+        // }
+        // testFn(1,2,3);
+        // console.log(1)
+//         const baseConfig = {
+//     mode: 'development',
+//     entry: ['babel-polyfill', './src/app.js'],
+//     output: {
+//         path: 'path.resolve(__dirname,)', // 项目的打包文件路径
+//         publicPath: '/', // 通过devServer访问路径
+//         filename: '[name].[chunkhash].js'
+//     },
+//     devtool: '#eval-source-map',
+//     resolve: {
+//         alias: {
+//             'vue$': 'vue/dist/vue.esm.js',
+//             '@': 'ss'
+//         },
+//         extensions: ['.js', '.vue', '.json']
+//     },
+//     devServer: {
+//         historyApiFallback: true,
+//         overlay: true, // 将错误显示在html之上
+//         contentBase: 'sssss',
+// 	    host: "localhost",
+//         port: "1718",
+//         hotOnly: true,
+// 	    compress: true
+//     },
+//     plugins: [
+//         // new HtmlWebpackPlugin({
+//         //     hash: true,
+//         //     template: './index.html', // 模版文件
+//         //     minify: {
+//         //         removeComments: true,
+//         //         collapseWhitespace: true,
+//         //         removeAttributeQuotes: true
+//         //     }
+//         // }),
+//         // new VueLoaderPlugin(),
+//         // new FriendlyErrorsWebpackPlugin(),
+//         // new CleanWebpackPlugin()
+//         // new ExtractTextPlugin("style.css")
+//     ],
+//     module: {
+//         rules: [
+//             {
+//                 test: /\.scss$/,
+//                 use: [
+//                     'vue-style-loader',
+//                     'css-loader',
+//                     'sass-loader'
+//                 ],
+//             },
+//             {
+//                 test: /\.js$/,
+//                 loader: 'babel-loader',
+//                 exclude: /node_modules/
+//             },
+//             {
+//                 test: /\.(png|jpg|gif|svg)$/,
+//                 use: [
+//                     {
+//                         loader: 'file-loader',
+//                         options: {
+//                             name: '[name].[ext]?[hash]',
+//                             esModule: false
+//                         }
+//                     }
+//                 ]
+//             },
+//             {
+//                 test: /\.vue$/,
+//                 loader: 'vue-loader',
+//                 options: {
+//                     loaders: {}
+//                 }
+//             },
+//             {
+//                 test: /\.(woff2?|eot|woff|ttf|otf)(\?.*)?$/,
+//                 use: [
+//                     {
+//                         loader: 'url-loader',
+//                         options: {
+//                             limit: 8192
+//                         }
+//                     }
+//                 ]
+//             },
+//             {
+//                 test: /.less$/,
+//                 use: [
+//                     'vue-style-loader',
+//                     'css-loader',
+//                     'less-loader'
+//                 ]
+//             },
+//             {
+//                 test: /\.sass$/,
+//                 use: [
+//                     'vue-style-loader',
+//                     'css-loader',
+//                     'sass-loader?indentedSyntax'
+//                 ],
+//             },
+//             { // 解析器的执行顺序是从下往上(先css-loader再vue-style-loader)
+//                 test: /\.css$/,
+//                 use: [
+//                     'vue-style-loader',
+//                     'postcss-loader',
+//                     'css-loader'
+//                 ]
+//               }
+//         ]
+//     }
+// };
+// const proConfig = {
+//     // mode: 'production'
+//     optimization: {
+//         splitChunks: {
+//             chunks: "all",
+//             maxSize: 80000,
+//             cacheGroups: {
+//                 vendor: {
+//                     test: /[\\/]node_modules[\\/]/,
+//                     name: "vendor",
+//                     chunks: "all",
+//                     minSize: 20000
+//                 },
+//             }
+//         }
+//     }
+// }
+// console.log(getMergeObject(baseConfig, proConfig))
+        // function getMergeObject(obj1, obj2) {
+        //     const obj2Keys = [];
+        //     for (let key in obj1) {
+        //         if ( Array.isArray(obj1[key]) ) {
+        //             obj1[key] =  obj2.hasOwnProperty(key)?[...obj1[key], ...obj2[key]]: [...obj1[key]];
+        //         } else if ( obj1[key] instanceof Object ) {
+        //             const keys = [];
+        //             for ( let value in obj1[key]) {
+        //                 if ( Array.isArray(obj1[key][value]) ) {
+        //                     keys.push(key);
+        //                     obj1[key][value] = obj2.hasOwnProperty(key) && obj2[key].hasOwnProperty(value)? [...obj1[key][value], ...obj2[key][value]]: [...obj1[key][value]]
+        //                 }
+        //             }
+        //             obj1[key] = Object.assign({}, obj1[key], keys.some(cur => cur === key)? {}: obj2.hasOwnProperty(key)? obj2[key]: {})
+        //         } else if ( typeof obj1[key] === 'number' ||  typeof obj1[key] === 'string') {
+        //             obj1[key] = obj2.hasOwnProperty(key)? obj2[key]: obj1[key]
+        //         }
+        //         // 剩余的没进去的key要遍历进去
+        //     }
+        //     for (let key in obj2) {
+        //         if ( !obj1.hasOwnProperty(key) ) {
+        //             obj1[key] = obj2[key]
+        //         }
+        //     }
+        //     return obj1
+        // }
+        // const obj1 = {
+        //     a: [1, 2, 3],
+        //     b: {
+        //         b1: 1,
+        //         b2: 2
+        //     },
+        //     c: {
+        //         d: [1, 2, 3],
+        //     },
+        //     d: 'a'
+        // };
+
+
+        // const obj2 = {
+        //     a: [4, 5, 6],
+        //     b: {
+        //         b3: 3,
+        //         b4: 4
+        //     },
+        //     c: {
+        //         d: [4, 5, 6],
+        //     },
+        //     d: 's'
+        // };
+
+        // getMergeObject(obj1, obj2)
+
+    // const arr1 = [
+    //         { department: '江南', name: '张云翔', userid: '15607637453811438', status: 1 },
+    //         { department: '江南', name: '张兴龙', userid: '15904567464407474', status: 1 },
+    //         { department: '江南', name: '张兴龙', userid: '15904567464407474', status: 1 },
+    //         { department: '会计部', name: '余芳1', userid: '15632395655921239', status: 1  },
+    //         { department: '会计部', name: '余芳', userid: '15632395655921230', status: 1  },
+    //         { department: '会计部', name: '余芳3', userid: '156323956559212333', status: 1  },
+    //         { department: '会计部', name: '余芳', userid: '15632395655921232'},
+    //         { department: '会计部', name: '王洁', userid: '15863588242517598', status: 1  }];
+    // const arr2 = [
+    //     { userid: '15607637453811438', drop: 1 },
+    //     { userid: '15904567464407474', drop: 2 },
+    //     { userid: '15632395655921232', drop: 3 },
+    // ]
+    // ;
+    // function getTeamidAssign(arr1, arr2, id, drop) {
+    //     arr1.forEach((item1, index1) => {
+    //         Object.assign(item1, {
+    //             [drop]: 0
+    //         })
+    //         arr2.forEach((item2, index2) => {
+    //             if (item1[id] === item2[id]) {
+    //                 Object.assign(item1, item2)
+    //             }
+    //         })
+    //     })
+    //     console.log(1)
+    //     return arr1
+    // }
+    // console.log( getTeamidAssign(arr1, arr2, 'userid', 'drop') )
+    // const arr2 = [
+    //         { department: '江南', name: '张云翔', userid: '15607637453811438', status: 1 },
+    //         { department: '江南', name: '张兴龙', userid: '15904567464407474', status: 1 },
+    //         { department: '江南', name: '张兴龙', userid: '15904567464407474', status: 1 },
+    //         { department: '会计部', name: '余芳1', userid: '15632395655921239', status: 1  },
+    //         { department: '会计部', name: '余芳', userid: '15632395655921230', status: 1  },
+    //         { department: '会计部', name: '余芳3', userid: '156323956559212333', status: 1  },
+    //         { department: '会计部', name: '余芳', userid: '15632395655921232'},
+    //         { department: '会计部', name: '王洁', userid: '158635882425175981', status: 1  }];
+
+        // function Pro() {
+        //     return new Promise(r => {
+        //         r(arr)
+        //     })
+        // }
+
+
+    // const removeDeduplication = (arr, keys) => {
+    //         return new Promise(r => {
+    //             const setArray = new Set();
+    //             const call =  arr.filter(x => {
+    //                 const setKey = JSON.stringify(
+    //                         keys.reduce((pre, cur) => Object.assign({}, {[cur]: x[cur]}), {})
+    //                     );
+    //                     if (setKey.includes('15511462592525282')) {
+    //                         console.log(setKey, setArray)
+    //                     }
+    //                     console.log(setKey)
+    //                 // return !setArray.has(setKey) ? setArray.add(setKey) : false;
+    //             });
+    //             r(call);
+    //         });
+    //     };
+
+
+
+        // removeDeduplication(arr, ['userid']).then(res => {
+        //     console.log(res)
+        // })
+        // a()
+        // async function a() {
+        //     const b = await Pro();
+        //     console.log(await removeDeduplication(b, ['userid']))
+        // }
+        // getKeylist(arr1, arr2, ['userid'], (res) => {
+        //     console.log(res)
+        // })
+        // function getKeylist( arr1, arr2, keys, callback) {
+        //         const cc = arr1.filter((item1) => {
+        //             const bb = arr2.filter((item2) => {
+        //                 const aa = keys.reduce((pre, cur) => {
+        //                     return item1[cur] === item2[cur] && pre
+        //                 }, true)
+        //                 if (aa) {
+        //                     return keys.reduce((pre, cur) => Object.assign(pre, {[cur]: item2[cur]}), {})
+        //                 }
+        //             })
+        //             // console.log(bb, 'bb1')
+        //             if (bb.length === 0) {
+        //                 const data = keys.reduce((pre, cur) => Object.assign(pre, {[cur]: item1[cur]}), {})
+                        
+        //                 return data
+        //             }
+        //         })
+        //         callback(cc)
+        //     }
+            // getKeylist(a, b, ['username', 'userid'], function(item) {
+            //     console.log(item ,'====')
+            // })
+        // a()
+        // async function a() {
+        //     var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        //     var newArr = [];
+        //     for (var i = 0; i < arr.length; i += 4) {
+        //         newArr.push(arr.slice(i, i + 4));
+        //     }
+        //     // 定时循环一个二维数组；
+        //     const newlength = newArr.length;
+        //     let num = 1;
+        //     let timer;
+        //     newArr.forEach((x, i) => {
+        //         setTimeout(() => {
+        //             x.forEach((y, j) => {
+        //                 // i
+        //                 if (i === newlength - 1) {
+        //                     console.log('aaa')
+        //                 }
+        //                 console.log(x, i, newlength - 1,y, j,'====')
+        //             })
+        //         }, (i + 1) * 2000);
+        //     })
+        // }
+        // let = newArr = [1,2,3]
+        // for (var i = 0;i<4;i++) {
+        //     b()(i)
+        // }
+
+        // for (var i = 0;i<4;i++) {
+        //     (function(i) {
+        //         setInterval(() => {
+        //             console.log(i)
+        //         }, 1000);
+        //     })(i)
+        // }
+        // newArr.forEach((x, i) => {
+        //     setInterval(() => {
+        //         console.log(i)
+        //     }, 1000);
+        // });
+        // function b() { // i在这里存着
+        //     var q;
+        //     return function c(i) {
+        //         q = i;
+        //         setInterval(function(){
+        //             console.log(q) // 这里永远输出一直是4 
+        //         },1000)
+        //     };
+        // }
+        // var bb = b()
+        // console.log(bb(2))
+        // console.log(bb(2))
+        // console.log(bb(2))
+
+        // for (let i=0; i< newArr.length; i++) {
+        //     setTimeout(function() {
+        //         console.log(i)
+        //     }, 1000)
+        // }
+//  console.log( arr.some( function( item, index, array ){ 
+//      console.log( 'item=' + item + ',index='+index+',array='+array ); 
+//      return item > 3; 
+//  })); 
+  
+//  console.log( arr.every( function( item, index, array ){ 
+//      console.log( 'item=' + item + ',index='+index+',array='+array ); 
+//      return item > 3; 
+//  }));
+        // class Father {
+        //     constructor() {}
+        //     static data1 = 1;
+        //     data2 = 2;
+        // }
+        // class Child extends Father {
+
+        // }
+        // const child = new Child();
+        // console.log(child.data1, Father.data1, child.data2)
+// class Employee {
+
+//     constructor(name) {
+//         this._name = name
+//     }
+
+//     get name() {
+//         if(this._name) {
+//             console.log(1)
+//             return 'Mr. ' + this._name.toUpperCase()
+//         } else {
+//             return undefined
+//         }  
+//     }
+
+//     set name(newName) {
+//             console.log(2)
+//             if (newName == this._name) {
+//                 console.log('I already have this name.')
+//             } else if (newName) {
+//                 this._name = newName
+//             } else {
+//                 return false
+//             }
+//     }
+// }
+
+//     var emp = new Employee("James Bond")
+
+//     // uses the get method in the background
+//     if (emp.name) {
+//         console.log(emp.name, ';===')
+//         // Mr. JAMES BOND
+//     }
+
+// // uses the setter in the background
+// emp.name = "James Bond"
+// console.log(emp.name)
+
+        //     const a = [
+        //     {
+        //         "id": 1,
+        //         "teamid": "129044186",
+        //         "teamname": "江北",
+        //         "teamparentid": "57490085",
+        //         "username": "彭俭",
+        //         "userid": "15901135799548176",
+        //         "status": 1,
+        //         "createdAt": "2020-07-06T07:58:49.000Z",
+        //         "updatedAt": "2020-07-06T07:58:49.000Z"
+        //     },
+        //     {
+        //         "id": 2,
+        //         "teamid": "129044186",
+        //         "teamname": "江北",
+        //         "teamparentid": "57490085",
+        //         "username": "李冲2",
+        //         "userid": "15916715603029212",
+        //         "status": 1,
+        //         "createdAt": "2020-07-06T07:58:49.000Z",
+        //         "updatedAt": "2020-07-06T07:58:49.000Z"
+        //     },
+        //     {
+        //         "id": 2,
+        //         "teamid": "129044186",
+        //         "teamname": "江北",
+        //         "teamparentid": "57490085",
+        //         "username": "李冲",
+        //         "userid": "15916715603029212",
+        //         "status": 1,
+        //         "createdAt": "2020-07-06T07:58:49.000Z",
+        //         "updatedAt": "2020-07-06T07:58:49.000Z"
+        //     },
+        //     {
+        //         "id": 222,
+        //         "teamid": "373665052",
+        //         "teamname": "服务端",
+        //         "teamparentid": "55364467",
+        //         "username": "张美星",
+        //         "userid": "15939978281932722",
+        //         "status": 1,
+        //         "createdAt": "2020-07-06T07:58:50.000Z",
+        //         "updatedAt": "2020-07-06T07:58:50.000Z"
+        //     }
+        // ]
+        // const b = [
+        //     {
+        //         "teamname": "江北",
+        //         "username": "彭俭",
+        //         "userid": "15901135799548176",
+        //         "teamparentid": 57490085,
+        //         "teamid": 129044186
+        //     },
+        //     {
+        //         "teamname": "江北",
+        //         "username": "李冲",
+        //         "userid": "15916715603029212",
+        //         "teamparentid": 57490085,
+        //         "teamid": 129044186
+        //     },
+        //     {
+        //         "teamname": "服务端",
+        //         "username": "张美星",
+        //         "userid": "15939978281932722",
+        //         "teamparentid": 55364467,
+        //         "teamid": 373665052
+        //     }
+        // ]
+            // 更新当条数据
+            // function getKeylist( arr1, arr2, keys, callback) {
+            //     arr1.map((item1, index1) => {
+            //         arr2.map((item2, index2) => {
+            //             let aa = keys.map((bl, nt) => item1[bl] === item2[bl])
+            //             console.log(aa)
+            //             Boolean(!aa)? callback(item1) : '';
+            //         })
+            //     })
+            // }
+
+// function list(keys) {
+//     const b = keys.reduce(item, '')
+//     console.log(b, 1)
+// }
+
+// function item(pre, cur, index, keys) {
+//     return cur + '===' + cur + (keys.length < index + keys.length? '&&': '') + pre
+// }
+
+// list(['name', 'userid', 'aaa', 'aaas', 'ss', 'aaaaaa'])
+
+// var numbers = [65, 44, 12, 4];
+ 
+// function getSum(total, num) {
+//     console.log(total, num, '1')
+//     return total + num;
+// }
+// function myFunction(item) {
+//     console.log(numbers.reduce(getSum))
+// }
+// myFunction(numbers)
+            // getKeylist(student1, student2, 'name', 'userid',function(item) {
+            //     item.status = 2
+            // })
+            // return '主键key', '要更新的index', 'callback'
+            // console.log(student1)
+
+
+        // var student3 = student2.map(x => JSON.stringify(x));
+        // var student4 = Array.from(new Set(student3));
+
+
+        // const student1 = [
+        //     { department: '江南', name: '张云翔', userid: '15607637453811438', status: 1 },
+        //     { department: '江南', name: '张兴龙', userid: '15904567464407474', status: 1 },
+        //     { department: '江南', name: '张兴龙', userid: '15904567464407474', status: 1 },
+        //     { department: '会计部', name: '余芳1', userid: '15632395655921239', status: 1  },
+        //     { department: '会计部', name: '余芳', userid: '15632395655921230', status: 1  },
+        //     { department: '会计部', name: '余芳3', userid: '156323956559212333', status: 1  },
+        //     { department: '会计部', name: '余芳', userid: '15632395655921232'},
+        //     { department: '会计部', name: '王洁', userid: '15863588242517598', status: 1  }];
+        // const student2 = [
+        //     { name: '张云翔', userid: '15607637453811438'},
+        //     { name: '张兴龙', userid: '15904567464407474'},
+        //     { name: '余芳', userid: '15632395655921232'},
+        //     { name: '王洁', userid: '15863588242517598'}];
+        
+      
+        // function removeDeduplication(arr = [], keys = []) {
+        //     const setArray = new Set();
+        //     return arr.filter(x => {
+        //         var b = JSON.stringify(
+        //                 keys.reduce((pre, cur) => Object.assign({}, {[cur]: x[cur]}), {})
+        //             );
+        //         return !setArray.has(b)?setArray.add(b): false;
+        //     })
+        // }
+        // console.log(removeDeduplication(student1, ['name', 'userid']))
+
+//         var a = student2.filter(x => {
+//             return {"name":"张兴龙","userid":"15904567464407474"}
+//         })
+// console.log(a)
+
+        // function removeDeduplication(arr = [], keys = []) {
+        //     var names = new Set();
+        //     return arr.filter(item => {
+        //         const key = JSON.stringify(
+        //             keys.reduce(
+        //                 (pre, cur) => Object.assign(pre, { [cur]: item[cur] }),
+        //                 {}
+        //             )
+        //         );
+        //         console.log(key, '=====')
+        //         return !names.has(key) ? names.add(key) : false;
+        //     });
+        // }
+        // removeDeduplication(student2, ['name', 'userid']);
+        // let setArray = new Set();
+        // setArray.add('{a:1,b:2}, {a:1,b:2}, {a:1,b:2}');
+        // console.log( setArray )
+        // console.log( setArray.has('a:1')  )
+        // console.log( Array.from(setArray)  )
+
+
+        // console.log(new Set([1,2]));
+        // let arr = [{a:1,b:2}, {a:1,b:2}, {a:1,b:2}]
+        // let brr = Array.from(arr);
+        // brr[0].a = 2;
+        // console.log(brr, arr);
+
+
+        // const stu = student2.some(x => {
+        //     return x.name === '张兴龙'
+        // });
+
+        // console.log(stu)
+// let arr1 =  [{
+//             "type": "内容编辑运营",
+//             "bj": 2,
+//             "sh": 0,
+//             "cd": 0,
+//             "sz": 0,
+//             "gz": 0,
+//             "wh": 0,
+//             "hz": 0
+//         },
+//         {
+//             "type": "财务",
+//             "bj": 3,
+//             "sh": 0,
+//             "cd": 0,
+//             "sz": 0,
+//             "gz": 0,
+//             "wh": 0,
+//             "hz": 0
+//         }]
+// let arr2 = [{
+//             "type": "内容编辑运营",
+//             "bj": 2,
+//             "sh": 0,
+//             "cd": 0,
+//             "sz": 0,
+//             "gz": 0,
+//             "wh": 0,
+//             "hz": 0
+//         },
+//         {
+//             "type": "财务",
+//             "bj": 3,
+//             "sh": 0,
+//             "cd": 0,
+//             "sz": 0,
+//             "gz": 1,
+//             "wh": 0,
+//             "hz": 0
+//         }]
+
+// arr1.map(x => {
+//     arr2.map(y => {
+//         for (let key in x) {
+//             if ((x.type === y.type) && (x[key] !== y[key])) {
+//                 x[key] = (x[key]).toString() + '(较最近'+ (x[key] - y[key]).toString() + ')'
+//             }
+//         }
+//     })
+// })
+
+// console.log(arr1)
+
+// function getKeyValue(value) {
+//     let place = '';
+//     switch(value) {
+//         case 'bj': place = '北京'; break;
+//         case 'sh': place = '上海'; break;
+//         case 'cd': place = '成都'; break;
+//         case 'sz': place = '深圳'; break;
+//         case 'gz': place = '广州'; break;
+//         case 'wh': place = '武汉'; break;
+//         case 'hz': place = '杭州'; break;
+//     }
+//     return place
+// }
+
+
+
+// let arr1 = [{a:1,b:2,c:3,d:4,e:'1a'}, {a:11,b:22,c:33,d:44,e:'2a'}, {a:111,b:222,c:333,d:444,e:'3a'}, {a:1111,b:2222,c:3333,d:4444,e:'4a'}];
+// let arr2 = [{a:1,b:2,c:3,d:4}, {a:11,b:22,c:33,d:44}, {a:111,b:222,c:333,d:444}];
+
+
+// let idArr = [];
+// let idArr1 = [];
+
+// arr1.map((x, y) => {
+//     idArr1.push(x.e)
+//     arr2.map((i, j) => {
+//         if ( (x.a === i.a) && (x.b === i.b) && (x.c === i.c) ) {
+//             idArr.push(x.e)
+//         }
+//     })
+// })
+
+// console.log(idArr1, idArr)
+
+// idArr1.map(x => {
+//     if ( idArr.indexOf(x) === -1 ) {
+//         console.log(x)
+//     }
+// })
+
+
+// for (let p of arr1) {
+//     for (let n of arr2) {
+//         if((p.a === n.a) && (p.b === n.b) && (p.c === n.c)) {
+//             console.log(p, '====',n)
+//         } else {
+//             console.log(p, '=!===',n)
+//         }
+//     }
+// }
+
+
+        // var myUl = $(".dw_table").find(".el");
+        // myUl.each(function(index, e){
+        //             console.log($(e).children('.t1').text())
+        // })
+        // getData('data')
+
+        // let num = 1;
+        // let total = 0;
+        // promiseCallback(1, function() {
+        //     total = 10
+        //     (function getData(num) {
+        //         if ( num > total ) {
+        //             return
+        //         } else {
+        //             promiseCallback(num, function() {
+        //                 console.log(num)
+        //                 num ++;
+        //                 getData(num)
+        //             })
+        //         }
+        //     })(num)
+        // })
+
+        // function promiseCallback(params, callback) {
+        //     if (params) {
+        //         callback()
+        //     }
+        // }
+    </script>
+</body>
+</html>
